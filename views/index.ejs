@@ -1,1 +1,29 @@
-<b>Works</b>
+<%- include('header') %>
+      <div class="card text-center">
+        <div class="card-body">
+          <% if(data === "puudub"){ %>
+              <p class="card-text text-danger">Error: Weather data not available for the selected city.</p>
+              <p class="card-text">Please try again later or select a different city.</p>
+          <% } else { %>
+              <h5 class="card-title">Current City: <%= data.CurrentCity %></h5>
+              <p class="card-text">Current temperature: <%= data.CurrentTemperature %>°C</p>
+              <p class="card-text">Feels Like: <%= data.FeelsLike %>°C</p>
+              <p class="card-text"><%= data.Description %></p>
+          <% } %>
+
+          <div class="btn-group">
+            <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+              Vali linn
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="/city/jurmala/country/latvia">Jurmala</a></li>
+              <li><a class="dropdown-item" href="/city/liepaja/country/latvia">Liepaja</a></li>
+              <div class="dropdown-divider"></div>
+              <li><a class="dropdown-item" href="/city/tartu/country/estonia">Tartu</a></li>
+              <li><a class="dropdown-item" href="/city/tallinn/country/estonia">Tallinn</a></li>
+              <li><a class="dropdown-item" href="/city/parnu/country/estonia">Parnu</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+<%- include('footer') %>
